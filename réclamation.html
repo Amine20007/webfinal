@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> amine voyage</title>
+    <style>
+        body {
+            background-image: url("img/reclamation.jpg");
+            background-repeat: no-repeat;
+            background-size: 1700px 700px;
+        }
+
+        .bold {
+            color: #ffcc33;
+            font-size: 40px;
+            font-weight: bold;
+            font-family: sans-serif;
+            text-decoration: underline;
+            text-align: center;
+        }
+
+        input[type=submit] {
+            font-size: 15px;
+            font-weight: bold;
+            color: #FFFFFF;
+            background-color: #ffcc33;
+        }
+
+        a.stylebouton {
+            border-radius: 5px;
+            border: solid thin #929292;
+            text-shadow: none;
+            background: #F6F6F6;
+            padding: 3px 8px;
+            margin: 2px;
+            text-decoration: none;
+            font-family: Arial;
+            font-size: 13px;
+        }
+
+        #a {
+            text-align: center;
+        }
+
+        #b {
+            text-align: center;
+        }
+
+        #c {
+            text-align: center;
+        }
+
+        #d {
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+    </style>
+    <script>
+        function submitForm() {
+            var textareaValue = document.getElementById('Adress').value;
+
+            if (textareaValue.trim() === '') {
+                alert('Veuillez entrer votre réclamation.');
+                return false;
+            } else {
+                alert('Votre réclamation est bien reçue.');
+                return true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="d">
+        <h2 class="bold">Donnez Votre Réclamation:</h2>
+        <form onsubmit="return submitForm();">
+            <textarea name="Adress" rows="10" cols="50" id="Adress"
+                placeholder="Entrez votre réclamation ici..."></textarea>
+            <br><br>
+            <div id="b">
+                <input type="submit" value="Envoyer">
+            </div>
+        </form>
+    </div>
+
+    <br>
+
+    <p id="a"> <a class="stylebouton" href="index.html">Retour Page d'accueil</a> </p>
+</body>
+
+</html>

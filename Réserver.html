@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> amine voyage</title>
+    <style type="text/css">
+        body {
+            background-image: url("img/hotels.jpg");
+            background-repeat: no-repeat;
+            background-size: 1600px 900px;
+        }
+
+        h1 {
+            color: wheat;
+            text-align: center;
+        }
+
+        label {
+            text-align: center;
+            color: #FFFFFF;
+        }
+
+        input {
+            text-align: center;
+            background-color: hsla(50, 15%, 15%, .30);
+        }
+
+        table {
+            background-color: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 45%;
+            margin: auto;
+        }
+
+        td {
+            color: #FFFFFF;
+        }
+
+        input[type=number] {
+            width: 130px;
+        }
+
+        input[type=date] {
+            width: 130px;
+        }
+
+        a.stylebouton {
+            border-radius: 5px;
+            border: solid thin #929292;
+            text-shadow: none;
+            background: #F6F6F6;
+            padding: 3px 8px;
+            margin: 2px;
+            text-decoration: none;
+            font-family: Arial;
+            font-size: 13px;
+        }
+
+        #a {
+            text-align: center;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            var destination = document.getElementById('destination').value;
+            var arrivalDate = document.getElementById('arrival-date').value;
+            var departureDate = document.getElementById('departure-date').value;
+            var adults = document.getElementById('adults').value;
+            var children = document.getElementById('children').value;
+            var rooms = document.getElementById('rooms').value;
+            var roomType = document.querySelector('input[name="room-type"]:checked');
+
+            // Check if any of the required fields are empty
+            if (destination === '' || arrivalDate === '' || departureDate === '' || adults === '' || roomType === null) {
+                alert('Please fill in all the required fields.');
+                return false;
+            }
+
+            // Create the popup content
+            var popupContent = "<h2>Reservation Details:</h2>" +
+                "<p><strong>Destination:</strong> " + destination + "</p>" +
+                "<p><strong>Arrival Date:</strong> " + arrivalDate + "</p>" +
+                "<p><strong>Departure Date:</strong> " + departureDate + "</p>" +
+                "<p><strong>Adults:</strong> " + adults + "</p>" +
+                "<p><strong>Children:</strong> " + children + "</p>" +
+                "<p><strong>Rooms:</strong> " + rooms + "</p>" +
+                "<p><strong>Room Type:</strong> " + roomType.value + "</p>";
+
+            // Open the popup window
+            var popupWindow = window.open("", "Reservation Details", "width=400,height=300");
+            popupWindow.document.write(popupContent);
+            popupWindow.document.close();
+
+            // Prevent the form from submitting
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Réservation Hotel</h1>
+    <table style="width:60%">
+        <tr>
+            <td colspan="4">
+                <FORM>
+                    <SELECT NAME="destination" id="destination" style="color:#0f0e0e">
+                        <option value="" style="color:#0f0e0e" selected><b>Quel est Votre Destination</b></option>
+                        <option value="Sousse">Sousse</option>
+                        <option value="Paris">Paris</option>
+                        <option value="Barcelone">Barcelone</option>
+                        <option value="Maldives">Maldives</option>
+                        <option value="London">London</option>
+                        <option value="Thailande">Thailande</option>
+                        <option value="Goa">Goa</option>
+                        <option value="Marrakech">Marrakech</option>
+                        <option value="Rome">Rome</option>
+                        <option value="Dubai">Dubai</option>
+                    </SELECT>
+                </FORM>
+            </td>
+        </tr>
+        <tr>
+            <td> <br>
+                <label for="arrival-date" style="color:#ADFF2F"><b>Date D'Arrivée </b></label>
+            </td>
+            <td> <input type="date" name="arrival-date" id="arrival-date" style="color:#FFFFFF">
+            </td>
+            <td>
+                <label for="departure-date" style="color:#ADFF2F"><b>Date De Sortie </b></label>
+            </td>
+            <td> <input type="date" name="departure-date" id="departure-date" style="color:#FFFFFF"><br><br>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4"> <br>
+                <p style="color:#ADFF2F"><b>Nombre De Visiteurs</b></p> <br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="adults" style="color:#ADFF2F"><b>Adultes</b></label>
+            </td>
+            <td>
+                <input type="number" id="adults" style="color:#FFFFFF">
+            </td>
+            <td>
+                <label for="children" style="color:#ADFF2F"> <b>Enfants</b></label>
+            </td>
+            <td> <input type="number" id="children" style="color:#FFFFFF">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="rooms" style="color:#ADFF2F"><b>Chambres</b></label>
+            </td>
+            <td>
+                <input type="number" id="rooms" style="color:#FFFFFF">
+            </td>
+            <td colspan="3" style="color:#ADFF2F"> <br> <br>
+                <input type="radio" name="room-type" value="chambre-seul"><b>Chambre Single</b><br>
+                <input type="radio" name="room-type" value="chambre-double"><b>Chambre Double</b><br>
+                <input type="radio" name="room-type" value="chambre de famille"> <b>Suite</b><br>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" style="width: 400px; height: 200px;">
+                <input type="submit" value="Tarifs" onclick="return validateForm()" style="color:#FFFFFF">
+            </td>
+        </tr>
+    </table>
+    <p id="a"> <a class="stylebouton" href="index.html">Retour Page d'accueil</a> </p>
+</body>
+
+</html>

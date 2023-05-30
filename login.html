@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> amine voyage</title>
+    <style>
+        body {
+            background-image: url("img/travel.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ffcc33;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 0;
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #ffcc33;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .forgot-password {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .forgot-password a {
+            color: #008B8B;
+            text-decoration: none;
+        }
+
+        .forgot-password a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .signup-link a {
+            color: #008B8B;
+            text-decoration: none;
+        }
+
+        .signup-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var form = document.forms["connexion"];
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); // Prevent form submission
+
+                var emailInput = form.elements["email"];
+                var passwordInput = form.elements["password"];
+
+                if (!emailInput.value.match(/[a-z0-9_\-\.]+@[a-z0-9_\-\.]+\.[a-z]+/i)) {
+                    showError("Veuillez entrer une adresse email valide!");
+                } else {
+                    // Redirect to index.html
+                    window.location.href = "index.html";
+                }
+            });
+        }
+
+        function showError(message) {
+            var errorElement = document.getElementById("error");
+            errorElement.style.visibility = 'visible';
+            errorElement.innerHTML = message;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Connexion</h1>
+        <form name="connexion">
+            <label for="username">Nom d'utilisateur</label>
+            <input id="username" type="email" name="email" required>
+
+            <label for="password">Mot de passe</label>
+            <input id="password" type="password" name="password" required>
+
+            <div class="forgot-password">
+                <a href="#">Mot de Passe oublié</a>
+            </div>
+
+            <input type="submit" value="Se Connecter">
+        </form>
+
+        <div class="signup-link">
+            <a href="inscription.html">Inscription</a>
+        </div>
+    </div>
+</body>
+
+</html>
